@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import Header from "./Components/Header/Header";
-import ScrollButton from "./Components/ScrollButton/ScrollButton";
 export const InitializeContext = createContext(null);
 
 function App() {
@@ -22,11 +21,10 @@ function App() {
         theme
           ? "bg-[url('https://i.ibb.co/y8QMy2P/bg-dar-md.jpg')]"
           : "bg-[url('https://i.ibb.co/r66ZP7V/bg-light-md.jpg')]"
-      } h-screen bg-cover`}
+      } h-screen bg-cover overflow-x-hidden`}
     >
       <InitializeContext.Provider value={{ handleThemeChange, theme }}>
         <Header />
-        <ScrollButton />
         <Toaster />
       </InitializeContext.Provider>
     </div>

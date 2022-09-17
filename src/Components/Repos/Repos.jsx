@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-hot-toast";
+import { InitializeContext } from "../../App";
 
 export default function Repos({ repos }) {
+  const { theme } = useContext(InitializeContext);
   const handleCopy = () => {
-    toast.success("Copied to clipboard");
+    if (theme) {
+      toast.success("Copied to clipboard", {
+        icon: "✋",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    } else {
+      toast.success("Copied to clipboard", {
+        icon: "✋",
+      });
+    }
   };
   return (
     <div>
