@@ -15,7 +15,7 @@ export default function Repos({ repos }) {
       )}
       <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto px-3 md:px-0 pb-10">
         {repos?.map((repo) => (
-          <div className="card w-full" key={repo?.id}>
+          <div className="card w-full shadow-xl" key={repo?.id}>
             <div className="card-body">
               <label className="absolute right-2 top-2">
                 {repo?.owner?.avatar_url && (
@@ -43,7 +43,7 @@ export default function Repos({ repos }) {
                   : "Description not available"}
               </p>
               {repo?.homepage ? (
-                <button className="w-1/3 p-2 rounded-lg font-semibold">
+                <button className="w-1/3 lg:w-1/4 btn btn-sm text-white">
                   <a
                     href={repo?.homepage}
                     className=""
@@ -54,29 +54,32 @@ export default function Repos({ repos }) {
                   </a>
                 </button>
               ) : (
-                <button className="w-1/2 p-2 rounded-lg font-semibold">
-                  <a href="/" className="" disabled>
+                <button
+                  className="w-1/2 lg:w-1/3 btn btn-sm text-white"
+                  disabled
+                >
+                  <a href="/" className="">
                     Not Available
                   </a>
                 </button>
               )}
-              <div className="card-actions justify-end pt-5">
+              <div className="card-actions justify-end pt-5 font-semibold">
                 <div className="badge badge-ghost bg-green-400">
                   {repo?.language ? repo?.language : "Not available"}
                 </div>
-                <div className="badge badge-ghost">
+                <div className="badge badge-ghost bg-base-300">
                   Created:{" "}
                   {repo?.created_at
                     ? repo?.created_at.slice(0, 10)
                     : "Not available"}
                 </div>
-                <div className="badge badge-ghost">
+                <div className="badge badge-ghost bg-base-300">
                   Last Updated:{" "}
                   {repo?.updated_at
                     ? repo?.updated_at.slice(0, 10)
                     : "Not available"}
                 </div>
-                <div className="badge badge-ghost">
+                <div className="badge badge-ghost bg-base-300">
                   Last Pushed:{" "}
                   {repo?.pushed_at
                     ? repo?.pushed_at.slice(0, 10)
@@ -85,7 +88,7 @@ export default function Repos({ repos }) {
               </div>
               <CopyToClipboard text={repo?.clone_url}>
                 <button
-                  className="p-2 px-5 rounded-lg font-semibold mx-auto mt-4 md:mt-8"
+                  className="btn btn-sm text-white mx-auto mt-4 md:mt-8"
                   onClick={handleCopy}
                   title="Click to copy Git Clone URL"
                 >
