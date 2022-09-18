@@ -57,14 +57,14 @@ export default function Header() {
 
   return (
     <div className="overflow-x-hidden">
-      <div className="flex justify-end top-[.5rem] right-3">
+      <div className="flex justify-end">
         <a
-          href="https://github.com/kiron0/github-user-details"
+          href="https://github.com/kiron0/stopwatch"
           target="_blank"
           rel="noreferrer"
           title="Stopwatch"
         >
-          <button className="flex justify-center">
+          <button className=" flex justify-center">
             <img
               className="h-10 md:h-12 w-10 md:w-12 rotate-45"
               src={`${
@@ -77,10 +77,11 @@ export default function Header() {
           </button>
         </a>
       </div>
-      <div className="top-[-2.9rem] md:top-[-3.1rem] left-3 relative">
+
+      <div className="flex justify-start">
         <button
           onClick={handleThemeChange}
-          className="h-16 w-16"
+          className="h-16 w-16 flex justify-center items-center -mt-12 md:mt-[-3.5rem] -ml-2"
           title={`Click to ${theme ? "Light" : "Dark"} theme`}
         >
           {theme ? (
@@ -102,7 +103,7 @@ export default function Header() {
           )}
         </button>
       </div>
-      <div className="flex justify-center pb-12 -mt-16 md:mt-0">
+      <div className="flex justify-center pb-12">
         <h1 className="text-xl md:text-3xl font-semibold pt-4 md:pt-0">
           Welcome To GitHub User Details API
         </h1>
