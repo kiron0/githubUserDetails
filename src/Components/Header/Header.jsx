@@ -59,7 +59,7 @@ export default function Header() {
     <div className="overflow-x-hidden">
       <div className="flex justify-end">
         <a
-          href="https://github.com/kiron0/stopwatch"
+          href="https://github.com/kiron0/github-user-details"
           target="_blank"
           rel="noreferrer"
           title="Stopwatch"
