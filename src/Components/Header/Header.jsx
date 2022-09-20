@@ -62,7 +62,7 @@ export default function Header() {
           href="https://github.com/kiron0/github-user-details"
           target="_blank"
           rel="noreferrer"
-          title="Stopwatch"
+          title="Github User Details"
         >
           <button className=" flex justify-center">
             <img
