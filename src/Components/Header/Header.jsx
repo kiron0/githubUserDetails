@@ -20,10 +20,24 @@ export default function Header() {
     setIsLoading(true);
     const value = inputRef.current.value;
     if (value === "") {
-      toast.error("Please enter your username first!");
+      if (theme) {
+        toast.error("Please enter your username first!", {
+          icon: "❌",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      } else {
+        toast.success("Please enter your username first!", {
+          icon: "❌",
+        });
+      }
       setIsLoading(false);
       return;
     }
+
     const url = `https://api.github.com/users/${value}`;
     fetch(url)
       .then((res) => res.json())
