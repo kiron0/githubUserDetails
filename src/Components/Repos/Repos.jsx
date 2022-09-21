@@ -58,7 +58,7 @@ export default function Repos({ repos }) {
                   : "Description not available"}
               </p>
               {repo?.homepage ? (
-                <button className="w-1/3 lg:w-1/4 btn btn-sm text-white">
+                <button className="w-1/3 lg:w-1/4 btn btn-primary btn-sm text-white">
                   <a
                     href={repo?.homepage}
                     className=""
@@ -70,7 +70,7 @@ export default function Repos({ repos }) {
                 </button>
               ) : (
                 <button
-                  className="w-1/2 lg:w-1/3 btn btn-sm text-white"
+                  className="w-1/2 lg:w-1/3 btn btn-primary btn-sm text-white"
                   disabled
                 >
                   <a href="/" className="">
@@ -79,7 +79,11 @@ export default function Repos({ repos }) {
                 </button>
               )}
               <div className="card-actions justify-end pt-5 font-semibold">
-                <div className="badge badge-ghost bg-green-400">
+                <div
+                  className={`badge badge-ghost bg-green-400 ${
+                    theme ? "text-white" : ""
+                  }`}
+                >
                   {repo?.language ? repo?.language : "Not available"}
                 </div>
                 <div className="badge badge-ghost bg-base-300">
@@ -103,7 +107,7 @@ export default function Repos({ repos }) {
               </div>
               <CopyToClipboard text={repo?.clone_url}>
                 <button
-                  className="btn btn-sm text-white mx-auto mt-4 md:mt-8"
+                  className="btn btn-primary btn-sm text-white mx-auto mt-4 md:mt-8"
                   onClick={handleCopy}
                   title="Click to copy Git Clone URL"
                 >

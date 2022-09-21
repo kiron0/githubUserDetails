@@ -12,7 +12,7 @@ export default function UserDetails({ data }) {
                 {data?.avatar_url && (
                   <div className="avatar">
                     <div className="w-72 md:w-80 rounded-full ring ring-offset-base-100 ring-offset-2 ">
-                      <a href={data?.html_url} target="_blank" rel="noreferrer">
+                      <a href={data?.avatar_url} target="_blank" rel="noreferrer">
                         <img src={data?.avatar_url} alt="" />
                       </a>
                     </div>

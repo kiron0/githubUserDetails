@@ -1,9 +1,10 @@
 import React, { useRef, useState, useContext } from "react";
 import { toast } from "react-hot-toast";
-import { HashLoader } from "react-spinners";
 import Repos from "../Repos/Repos";
 import UserDetails from "../UserDetails/UserDetails";
 import { InitializeContext } from "../../App";
+import Pagination from "../Pagination/Pagination";
+import Loading from "../Loading/Loading";
 
 export default function Header() {
   const { handleThemeChange, theme } = useContext(InitializeContext);
@@ -11,8 +12,10 @@ export default function Header() {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reposPerPage] = useState(6);
 
-  const handleSubmit = (e) => {
+  const handleGetUserData = (e) => {
     e.preventDefault();
     setIsLoading(true);
     const value = inputRef.current.value;
@@ -35,25 +38,33 @@ export default function Header() {
       });
   };
 
-  const handleRepos = (e) => {
+  // console.log(`https://api.github.com/users/${data?.login}/repos?page=${currentPage}&per_page=${reposPerPage}`)
+
+  // console.log(reposData?.data?.length)
+
+  const handleGetAllRepos = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const url = `https://api.github.com/users/${data?.login}/repos`;
+    const url = `https://api.github.com/users/${data?.login}/repos?page=${currentPage}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setRepos(data);
+        if (data) {
+          setRepos(data);
+        }
         setIsLoading(false);
       });
   };
 
   if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex justify-center items-center absolute top-0 left-0 backdrop-blur-[9px] z-50">
-        <HashLoader size={55} color={"#19D3AE"} />
-      </div>
-    );
+    return <Loading />;
   }
+
+  const lastRepoIndex = currentPage * reposPerPage;
+  const firstRepoIndex = lastRepoIndex - reposPerPage;
+  const currentRepos = repos?.slice(firstRepoIndex, lastRepoIndex);
+
+  // console.log(currentRepos)
 
   return (
     <div className="overflow-x-hidden">
@@ -109,7 +120,10 @@ export default function Header() {
         </h1>
       </div>
       <div className="flex justify-center items-center mx-auto pb-5">
-        <form className="flex flex-col gap-6 w-full" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col gap-6 w-full"
+          onSubmit={handleGetUserData}
+        >
           <input
             type="text"
             ref={inputRef}
@@ -118,7 +132,7 @@ export default function Header() {
           />
           <button
             type="submit"
-            className="btn btn-md text-white flex justify-center items-center mx-auto"
+            className={`btn btn-primary btn-md text-white flex justify-center items-center mx-auto`}
           >
             Submit
           </button>
@@ -127,16 +141,24 @@ export default function Header() {
 
       {data?.id && (
         <div className="flex justify-center items-center mx-auto">
-          <form onSubmit={handleRepos}>
-            <button className="btn btn-md text-white ">See All Repos</button>
+          <form onSubmit={handleGetAllRepos}>
+            <button className="btn btn-primary btn-md text-white ">
+              See All Repos
+            </button>
           </form>
         </div>
       )}
 
-      <div>
+      <>
         <UserDetails data={data} />
-        <Repos repos={repos} />
-      </div>
+        <Repos repos={currentRepos} />
+        <Pagination
+          totalRepos={repos?.length}
+          reposPerPage={reposPerPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+      </>
     </div>
   );
 }
