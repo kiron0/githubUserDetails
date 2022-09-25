@@ -47,7 +47,7 @@ const Pagination = ({ username, setRepositories }) => {
       <div className="flex justify-between items-center">
         <button
           onClick={() => setNewer(false)}
-          className={`capitalize btn btn-outline ${
+          className={`capitalize btn btn-sm btn-outline ${
             !newer ? "btn-disabled" : "btn-primary"
           }`}
         >
@@ -55,7 +55,7 @@ const Pagination = ({ username, setRepositories }) => {
         </button>
         <button
           onClick={() => setNewer(true)}
-          className={`capitalize btn btn-outline ${
+          className={`capitalize btn btn-sm btn-outline ${
             newer ? "btn-disabled" : "btn-primary"
           }`}
         >
