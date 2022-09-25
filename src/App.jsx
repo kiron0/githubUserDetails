@@ -3,7 +3,6 @@ import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import GithubUser from "./Components/GithubUser/GithubUser";
 import Home from "./Components/Home/Home";
-import ThemeChanger from "./Components/ThemeChanger/ThemeChanger";
 import NotFound from "./Components/NotFound/NotFound";
 export const InitializeContext = createContext(null);
 
@@ -28,7 +27,6 @@ function App() {
       } h-screen bg-cover overflow-x-hidden`}
     >
       <InitializeContext.Provider value={{ handleThemeChange, theme }}>
-        <ThemeChanger />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:username" element={<GithubUser />} />

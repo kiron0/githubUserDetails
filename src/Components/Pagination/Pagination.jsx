@@ -12,7 +12,7 @@ const Pagination = ({ username, setRepositories }) => {
     <div className="table mx-auto my-10">
       <div className="btn-group py-5">
         <button
-          onClick={() => setPage(page)}
+          onClick={() => setPage(page - 1)}
           className={`btn btn-primary btn-outline btn-sm ${
             page === 1 ? "btn-disabled" : undefined
           }`}

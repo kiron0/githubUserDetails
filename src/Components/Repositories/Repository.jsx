@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { InitializeContext } from "../../App";
 
 const Repository = ({ repository }) => {
+  // console.log(repository);
   const { theme } = useContext(InitializeContext);
   const handleCopy = () => {
     if (theme) {
@@ -22,6 +23,7 @@ const Repository = ({ repository }) => {
     }
   };
   return (
+    <div className="container mx-auto">
       <div className="container mx-auto pb-10">
         <div className="card w-full shadow-xl">
           <div className="card-body">
@@ -71,6 +73,37 @@ const Repository = ({ repository }) => {
                 </a>
               </button>
             )}
+            {repository?.topic.length > 0 ? (
+              <div>
+                {repository?.topics
+                  .map((topic, index) => {
+                    return (
+                      <button
+                        key={index}
+                        className="lowercase btn btn-sm btn-info mr-2 mb-2 text-white"
+                      >
+                        {topic}
+                      </button>
+                    );
+                  })
+                  .slice(0, 4)}
+
+                {repository?.topics.length > 4 && (
+                  <div
+                    data-tip={repository?.topics.slice(4).slice(",").join(", ")}
+                    className="tooltip"
+                  >
+                    <button className="btn btn-sm btn-info mb-2 text-white">
+                      {repository?.topics.length - 4 + "+"}
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button className="lowercase btn btn-sm btn-info mr-2 mb-2 text-white">
+                Not Available
+              </button>
+            )}
             <div className="card-actions justify-end pt-5 font-semibold">
               <div
                 className={`badge badge-ghost bg-green-400 ${
@@ -110,6 +143,7 @@ const Repository = ({ repository }) => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
