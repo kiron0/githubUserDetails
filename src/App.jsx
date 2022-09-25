@@ -1,6 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import Header from "./Components/Header/Header";
+import { Route, Routes } from "react-router-dom";
+import GithubUser from "./Components/GithubUser/GithubUser";
+import Home from "./Components/Home/Home";
+import ThemeChanger from "./Components/ThemeChanger/ThemeChanger";
+import NotFound from "./Components/NotFound/NotFound";
 export const InitializeContext = createContext(null);
 
 function App() {
@@ -24,7 +28,12 @@ function App() {
       } h-screen bg-cover overflow-x-hidden`}
     >
       <InitializeContext.Provider value={{ handleThemeChange, theme }}>
-        <Header />
+        <ThemeChanger />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:username" element={<GithubUser />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
         <Toaster />
       </InitializeContext.Provider>
     </div>
