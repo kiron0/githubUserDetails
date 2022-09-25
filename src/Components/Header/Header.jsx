@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdLocationPin } from "react-icons/md";
+import { InitializeContext } from "../../App";
+import gitHubLight from "../../Assets/github-light.png";
+import gitHubDark from "../../Assets/github-dark.png";
 
 const Header = ({ user }) => {
+  const { handleThemeChange, theme } = useContext(InitializeContext);
   const {
     id,
     avatar_url,
@@ -21,7 +25,38 @@ const Header = ({ user }) => {
 
   return (
     <>
-      <section className="body-font py-16">
+      <section className="body-font py-10">
+        <div className="flex justify-center items-center gap-4 pb-4">
+          <div className="flex justify-center items-center">
+            <button
+              onClick={handleThemeChange}
+              className="pt-2"
+              title={`Click to ${theme ? "Light" : "Dark"} theme`}
+            >
+              {theme ? (
+                <input type="checkbox" className="toggle toggle-sm" checked />
+              ) : (
+                <input type="checkbox" className="toggle toggle-sm" />
+              )}
+            </button>
+          </div>
+          <div className="flex justify-center items-center">
+            <a
+              href="https://github.com/kiron0/github-user-details"
+              target="_blank"
+              rel="noreferrer"
+              title="Github User Details"
+            >
+              <button className="flex justify-center">
+                <img
+                  className="h-10 md:h-12 w-10 md:w-12"
+                  src={`${theme ? gitHubDark : gitHubLight}`}
+                  alt="github"
+                />
+              </button>
+            </a>
+          </div>
+        </div>
         <div className="hero">
           <div className="hero-content flex-col justify-between lg:flex-row mx-auto">
             <div className="w-full lg:w-1/2 lg:ml-6">

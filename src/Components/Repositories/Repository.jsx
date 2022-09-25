@@ -73,10 +73,10 @@ const Repository = ({ repository }) => {
                 </a>
               </button>
             )}
-            {repository?.topic.length > 0 ? (
+            {repository?.topic?.length > 0 ? (
               <div>
                 {repository?.topics
-                  .map((topic, index) => {
+                  ?.map((topic, index) => {
                     return (
                       <button
                         key={index}
@@ -88,7 +88,7 @@ const Repository = ({ repository }) => {
                   })
                   .slice(0, 4)}
 
-                {repository?.topics.length > 4 && (
+                {repository?.topics?.length > 4 && (
                   <div
                     data-tip={repository?.topics.slice(4).slice(",").join(", ")}
                     className="tooltip"
@@ -100,8 +100,8 @@ const Repository = ({ repository }) => {
                 )}
               </div>
             ) : (
-              <button className="lowercase btn btn-sm btn-info mr-2 mb-2 text-white">
-                Not Available
+              <button className="w-3/4 lg:w-1/2 btn btn-sm btn-info text-white">
+                Topics Not Available
               </button>
             )}
             <div className="card-actions justify-end pt-5 font-semibold">

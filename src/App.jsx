@@ -22,8 +22,8 @@ function App() {
       data-theme={theme && "night"}
       className={`${
         theme
-          ? "bg-[url('https://i.ibb.co/y8QMy2P/bg-dar-md.jpg')]"
-          : "bg-[url('https://i.ibb.co/r66ZP7V/bg-light-md.jpg')]"
+          ? "bg-[url('./Assets/bg-dark.jpg')]"
+          : "bg-[url('./Assets/bg-light.jpg')]"
       } h-screen bg-cover overflow-x-hidden`}
     >
       <InitializeContext.Provider value={{ handleThemeChange, theme }}>

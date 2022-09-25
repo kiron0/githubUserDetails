@@ -1,5 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { InitializeContext } from "../../App";
+import gitHubLight from "../../Assets/github-light.png";
+import gitHubDark from "../../Assets/github-dark.png";
 
 const Home = () => {
   const { handleThemeChange, theme } = useContext(InitializeContext);
@@ -34,11 +36,7 @@ const Home = () => {
             <button className="flex justify-center">
               <img
                 className="h-10 md:h-12 w-10 md:w-12"
-                src={`${
-                  theme
-                    ? "https://img.icons8.com/nolan/344/github.png"
-                    : "https://img.icons8.com/ios-glyphs/452/github.png"
-                }`}
+                src={`${theme ? gitHubDark : gitHubLight}`}
                 alt="github"
               />
             </button>
@@ -53,7 +51,17 @@ const Home = () => {
       <p className="text-sm md:text-xl">
         Type your username with "/" after the root URL
       </p>
-      <p className="text-sm md:text-xl">Ex: {window.location.href}kiron0</p>
+      <p className="text-sm md:text-xl">
+        Ex:{" "}
+        <a
+          href={`${window.location.href}kiron0`}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-primary duration-300"
+        >
+          {window.location.href}kiron0
+        </a>
+      </p>
       <p className="divider w-[50%] md:w-[30%] lg:w-[20%] mx-auto">OR</p>
       <form className="flex flex-col justify-center items-center w-full max-w-xs">
         <input
