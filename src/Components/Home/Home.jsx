@@ -12,7 +12,7 @@ export default function Home() {
   };
   return (
     <div className="flex flex-col gap-5 justify-center items-center h-screen overflow-x-hidden">
-      <div className="flex justify-center items-center gap-4">
+      <div className="flex justify-center items-center gap-4 backdrop-blur-lg glass px-1 fixed top-4 right-4 rounded-xl">
         <div className="flex justify-center items-center">
           <button
             onClick={handleThemeChange}

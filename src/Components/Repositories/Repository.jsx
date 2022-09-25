@@ -46,9 +46,9 @@ export default function Repository({ repository }) {
                 {repository?.name}
               </a>
             </h2>
-            <p className="font-semibold py-3">
+            <p className="font-semibold py-3" title={repository?.description}>
               {repository?.description
-                ? repository?.description
+                ? repository?.description?.slice(0, 30)
                 : "Description not available"}
             </p>
             {repository?.homepage ? (
@@ -68,7 +68,7 @@ export default function Repository({ repository }) {
                 disabled
               >
                 <a href="/" className="">
-                  Not Available
+                  Not found
                 </a>
               </button>
             )}
@@ -79,7 +79,7 @@ export default function Repository({ repository }) {
                     return (
                       <button
                         key={index}
-                        className="lowercase btn btn-sm btn-info mr-2 mb-2 text-white"
+                        className="btn no-animation btn-sm btn-info mr-2 mb-2 text-white"
                       >
                         {topic}
                       </button>
@@ -92,14 +92,14 @@ export default function Repository({ repository }) {
                     data-tip={repository?.topics.slice(4).slice(",").join(", ")}
                     className="tooltip"
                   >
-                    <button className="btn btn-sm btn-info mb-2 text-white">
+                    <button className="btn no-animation btn-sm btn-info mb-2 text-white">
                       {repository?.topics.length - 4 + "+"}
                     </button>
                   </div>
                 )}
               </div>
             ) : (
-              <button className="w-3/4 lg:w-1/2 btn btn-sm btn-info text-white">
+              <button className="w-3/4 lg:w-1/2 btn no-animation btn-sm btn-info text-white">
                 Topics Not Available
               </button>
             )}
@@ -109,30 +109,30 @@ export default function Repository({ repository }) {
                   theme ? "text-white" : ""
                 }`}
               >
-                {repository?.language ? repository?.language : "Not available"}
+                {repository?.language ? repository?.language : "Not found"}
               </div>
               <div className="badge badge-ghost bg-base-300">
                 Created:{" "}
                 {repository?.created_at
                   ? repository?.created_at.slice(0, 10)
-                  : "Not available"}
+                  : "Not found"}
               </div>
               <div className="badge badge-ghost bg-base-300">
                 Last Updated:{" "}
                 {repository?.updated_at
                   ? repository?.updated_at.slice(0, 10)
-                  : "Not available"}
+                  : "Not found"}
               </div>
               <div className="badge badge-ghost bg-base-300">
                 Last Pushed:{" "}
                 {repository?.pushed_at
                   ? repository?.pushed_at.slice(0, 10)
-                  : "Not available"}
+                  : "Not found"}
               </div>
             </div>
             <CopyToClipboard text={repository?.clone_url}>
               <button
-                className="btn btn-primary btn-sm text-white mx-auto mt-4 md:mt-8"
+                className="btn btn-sm text-white mx-auto mt-4 md:mt-8"
                 onClick={handleCopy}
                 title="Click to copy Git Clone URL"
               >

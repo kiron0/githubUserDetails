@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { MdLocationPin } from "react-icons/md";
+import { BiLeftArrow } from "react-icons/bi";
 import { InitializeContext } from "../../App";
 import gitHubLight from "../../Assets/github-light.png";
 import gitHubDark from "../../Assets/github-dark.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ user }) {
+  const navigate = useNavigate();
   const { handleThemeChange, theme } = useContext(InitializeContext);
   const {
     id,
@@ -25,8 +28,16 @@ export default function Header({ user }) {
 
   return (
     <>
-      <section className="body-font py-10">
-        <div className="flex justify-center items-center gap-4 pb-4">
+      <section className="body-font py-16">
+        <div
+          className={`flex justify-center items-center gap-4 backdrop-blur-lg glass z-50 fixed top-4 left-4 rounded-xl p-2 px-3 cursor-pointer`}
+          onClick={() => navigate("/")}
+        >
+          <BiLeftArrow /> Back
+        </div>
+        <div
+          className={`flex justify-center items-center gap-4 backdrop-blur-lg glass z-50 fixed top-4 right-4 md:right-8 rounded-xl px-1`}
+        >
           <div className="flex justify-center items-center">
             <button
               onClick={handleThemeChange}
