@@ -4,7 +4,7 @@ export default function useRepositories(username, setRepositories) {
   const [pageLoading, setPageLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [page, setPage] = useState(1);
-  const [size] = useState(30);
+  const [size] = useState(5);
   const [newer, setNewer] = useState(true);
 
   useEffect(() => {

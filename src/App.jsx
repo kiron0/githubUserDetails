@@ -20,11 +20,10 @@ export default function App() {
   return (
     <div
       data-theme={theme && "night"}
-      className={`${
-        theme
+      className={`${theme
           ? "bg-[url('./Assets/bg-dark.jpg')]"
           : "bg-[url('./Assets/bg-light.jpg')]"
-      } h-screen bg-cover overflow-x-hidden`}
+        } bg-cover`}
     >
       <InitializeContext.Provider value={{ handleThemeChange, theme }}>
         <Routes>

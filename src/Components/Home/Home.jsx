@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { InitializeContext } from "../../App";
-import gitHubLight from "../../Assets/github-light.png";
 import gitHubDark from "../../Assets/github-dark.png";
+import gitHubLight from "../../Assets/github-light.png";
 
 export default function Home() {
   const { handleThemeChange, theme } = useContext(InitializeContext);
@@ -11,7 +11,7 @@ export default function Home() {
     window.location.href = `/${name.current.value}`;
   };
   return (
-    <div className="flex flex-col gap-5 justify-center items-center h-screen overflow-x-hidden">
+    <div className="flex flex-col gap-5 justify-center items-center h-screen">
       <div className="flex justify-center items-center gap-4">
         <div className="flex justify-center items-center">
           <button
