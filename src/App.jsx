@@ -6,7 +6,7 @@ import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound/NotFound";
 export const InitializeContext = createContext(null);
 
-function App() {
+export default function App() {
   const [theme, setTheme] = useState(false);
 
   useEffect(() => {
@@ -37,5 +37,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

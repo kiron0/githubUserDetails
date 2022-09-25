@@ -2,7 +2,7 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import React from "react";
 import useRepositories from "../../Hooks/useRepositories";
 
-const Pagination = ({ username, setRepositories }) => {
+export default function Pagination({ username, setRepositories }) {
   const { page, setPage, pageNumber, setNewer, newer } = useRepositories(
     username,
     setRepositories
@@ -64,6 +64,4 @@ const Pagination = ({ username, setRepositories }) => {
       </div>
     </div>
   );
-};
-
-export default Pagination;
+}

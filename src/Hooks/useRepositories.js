@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useRepositories = (username, setRepositories) => {
+export default function useRepositories(username, setRepositories) {
   const [pageLoading, setPageLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [page, setPage] = useState(1);
@@ -34,6 +34,4 @@ const useRepositories = (username, setRepositories) => {
   }, [size, username, page, pageNumber]);
 
   return { pageLoading, page, setPage, pageNumber, setNewer, newer };
-};
-
-export default useRepositories;
+}

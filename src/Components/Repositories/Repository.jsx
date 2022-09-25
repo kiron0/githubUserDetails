@@ -3,8 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-hot-toast";
 import { InitializeContext } from "../../App";
 
-const Repository = ({ repository }) => {
-  // console.log(repository);
+export default function Repository({ repository }) {
   const { theme } = useContext(InitializeContext);
   const handleCopy = () => {
     if (theme) {
@@ -145,6 +144,4 @@ const Repository = ({ repository }) => {
       </div>
     </div>
   );
-};
-
-export default Repository;
+}

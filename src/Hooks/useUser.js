@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useUser = (username) => {
+export default function useUser(username) {
   const API = `https://api.github.com/users/${username}`;
 
   const [user, setUser] = useState({});
@@ -22,6 +22,4 @@ const useUser = (username) => {
   }, [API]);
 
   return [user, setUser, loading];
-};
-
-export default useUser;
+}

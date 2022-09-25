@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import Pagination from "../Pagination/Pagination";
 import Repositories from "../Repositories/Repositories";
 
-const GithubUser = () => {
+export default function GithubUser() {
   const { username } = useParams();
   const [user] = useUser(username);
   const [repositories, setRepositories] = useState([]);
@@ -19,6 +19,4 @@ const GithubUser = () => {
       <Pagination username={username} setRepositories={setRepositories} />
     </div>
   );
-};
-
-export default GithubUser;
+}

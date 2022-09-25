@@ -4,7 +4,7 @@ import { InitializeContext } from "../../App";
 import gitHubLight from "../../Assets/github-light.png";
 import gitHubDark from "../../Assets/github-dark.png";
 
-const Header = ({ user }) => {
+export default function Header({ user }) {
   const { handleThemeChange, theme } = useContext(InitializeContext);
   const {
     id,
@@ -141,6 +141,4 @@ const Header = ({ user }) => {
       </section>
     </>
   );
-};
-
-export default Header;
+}

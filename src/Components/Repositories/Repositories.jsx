@@ -1,24 +1,10 @@
 import React from "react";
-import { BallTriangle } from "react-loader-spinner";
+import Loading from "../Loading/Loading";
 import Repository from "./Repository";
 
-const Repositories = ({ repositories, pageLoading }) => {
+export default function Repositories({ repositories, pageLoading }) {
   if (pageLoading) {
-    return (
-      <BallTriangle
-        height={100}
-        width={100}
-        radius={5}
-        color="#4fa94d"
-        ariaLabel="ball-triangle-loading"
-        wrapperStyle={{
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-        visible={true}
-      />
-    );
+    return <Loading />;
   }
   return (
     <div>
@@ -34,6 +20,4 @@ const Repositories = ({ repositories, pageLoading }) => {
       </div>
     </div>
   );
-};
-
-export default Repositories;
+}

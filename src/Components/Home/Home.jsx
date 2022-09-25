@@ -3,7 +3,7 @@ import { InitializeContext } from "../../App";
 import gitHubLight from "../../Assets/github-light.png";
 import gitHubDark from "../../Assets/github-dark.png";
 
-const Home = () => {
+export default function Home() {
   const { handleThemeChange, theme } = useContext(InitializeContext);
   const name = useRef();
   const handleUserNameSearch = (e) => {
@@ -79,6 +79,4 @@ const Home = () => {
       </form>
     </div>
   );
-};
-
-export default Home;
+}
