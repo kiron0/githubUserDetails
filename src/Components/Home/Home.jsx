@@ -11,8 +11,13 @@ export default function Home() {
     window.location.href = `/${name.current.value}`;
   };
   return (
+<<<<<<< HEAD
     <div className="flex flex-col gap-5 justify-center items-center h-screen">
       <div className="flex justify-center items-center gap-4">
+=======
+    <div className="flex flex-col gap-5 justify-center items-center h-screen overflow-x-hidden">
+      <div className="flex justify-center items-center gap-4 backdrop-blur-lg glass px-1 fixed top-4 right-4 rounded-xl">
+>>>>>>> 1f9e4a20ce64024bb2953f57aa019056bd229b6d
         <div className="flex justify-center items-center">
           <button
             onClick={handleThemeChange}
