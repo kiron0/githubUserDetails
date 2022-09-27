@@ -50,7 +50,7 @@ export default function Home() {
         </h1>
       </div>
       <p className="text-sm md:text-xl">
-        Type your username with "/" after the root URL
+        Type your username with "/" after the root URL to see your details
       </p>
       <p className="text-sm md:text-xl">
         Ex:{" "}
