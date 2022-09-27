@@ -9,8 +9,8 @@ export default function Pagination({ username, setRepositories }) {
   );
 
   return (
-    <div className="">
-      <div className="btn-group py-5">
+    <div className="text-center">
+      <div className="btn-group py-5 ">
         <button
           onClick={() => setPage(page - 1)}
           className={`btn btn-primary btn-outline btn-sm ${page === 1 ? "btn-disabled" : undefined
