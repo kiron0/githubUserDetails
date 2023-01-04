@@ -2,16 +2,23 @@ import React, { useContext, useRef } from "react";
 import { InitializeContext } from "../../App";
 import gitHubDark from "../../Assets/github-dark.png";
 import gitHubLight from "../../Assets/github-light.png";
+import { toast } from "react-hot-toast";
 
 export default function Home() {
   const { handleThemeChange, theme } = useContext(InitializeContext);
   const name = useRef();
   const handleUserNameSearch = (e) => {
     e.preventDefault();
-    window.location.href = `/${name.current.value}`;
+
+    // if name is empty
+    if (!name.current.value) {
+      toast.error("Please enter a username");
+      return;
+    } else {
+      window.location.href = `/${name.current.value}`;
+    }
   };
   return (
-
     <div className="flex flex-col gap-5 justify-center items-center h-screen overflow-x-hidden">
       <div className="flex justify-center items-center gap-4 backdrop-blur-lg glass px-1 fixed top-4 right-4 rounded-xl">
         <div className="flex justify-center items-center">
@@ -29,7 +36,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center items-center">
           <a
-            href="https://github.com/0nahid/github-user-details"
+            href="https://github.com/kiron0/github-user-details"
             target="_blank"
             rel="noreferrer"
             title="Github User Details"
@@ -49,18 +56,18 @@ export default function Home() {
           Welcome To GitHub User Details API
         </h1>
       </div>
-      <p className="text-sm md:text-xl">
+      <p className="text-sm md:text-xl text-center">
         Type your username with "/" after the root URL to see your details
       </p>
       <p className="text-sm md:text-xl">
         Ex:{" "}
         <a
-          href={`${window.location.href}0nahid`}
+          href={`${window.location.href}kiron0`}
           target="_blank"
           rel="noreferrer"
           className="hover:text-primary duration-300"
         >
-          {window.location.href}0nahid
+          {window.location.href}kiron0
         </a>
       </p>
       <p className="divider w-[50%] md:w-[30%] lg:w-[20%] mx-auto">OR</p>

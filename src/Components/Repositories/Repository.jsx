@@ -41,9 +41,14 @@ export default function Repository({ repository }) {
                 </div>
               )}
             </label>
-            <h2 className="card-title hover:text-primary">
+            <h2
+              className="card-title hover:text-primary"
+              title={repository?.name}
+            >
               <a href={repository?.html_url} target="_blank" rel="noreferrer">
-                {repository?.name}
+                {repository?.name?.length > 18
+                  ? repository?.name?.slice(0, 18) + "..."
+                  : repository?.name}
               </a>
             </h2>
             <p className="font-semibold py-3" title={repository?.description}>

@@ -13,7 +13,7 @@ export default function GithubUser() {
   const { pageLoading } = useRepositories(username, setRepositories);
 
   return (
-    <div className="container mx-auto px-5 overflow-x-hidden">
+    <div className="container mx-auto px-5 overflow-x-hidden pb-10">
       <Header user={user} />
       <Repositories pageLoading={pageLoading} repositories={repositories} />
       <Pagination username={username} setRepositories={setRepositories} />
