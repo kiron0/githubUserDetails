@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { InitializeContext } from "../../App";
-import gitHubLight from "../../Assets/github-light.png";
 import gitHubDark from "../../Assets/github-dark.png";
+import gitHubLight from "../../Assets/github-light.png";
 
 export default function Home() {
   const { handleThemeChange, theme } = useContext(InitializeContext);
@@ -11,6 +11,7 @@ export default function Home() {
     window.location.href = `/${name.current.value}`;
   };
   return (
+
     <div className="flex flex-col gap-5 justify-center items-center h-screen overflow-x-hidden">
       <div className="flex justify-center items-center gap-4 backdrop-blur-lg glass px-1 fixed top-4 right-4 rounded-xl">
         <div className="flex justify-center items-center">
@@ -28,7 +29,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center items-center">
           <a
-            href="https://github.com/kiron0/github-user-details"
+            href="https://github.com/0nahid/github-user-details"
             target="_blank"
             rel="noreferrer"
             title="Github User Details"
@@ -49,17 +50,17 @@ export default function Home() {
         </h1>
       </div>
       <p className="text-sm md:text-xl">
-        Type your username with "/" after the root URL
+        Type your username with "/" after the root URL to see your details
       </p>
       <p className="text-sm md:text-xl">
         Ex:{" "}
         <a
-          href={`${window.location.href}kiron0`}
+          href={`${window.location.href}0nahid`}
           target="_blank"
           rel="noreferrer"
           className="hover:text-primary duration-300"
         >
-          {window.location.href}kiron0
+          {window.location.href}0nahid
         </a>
       </p>
       <p className="divider w-[50%] md:w-[30%] lg:w-[20%] mx-auto">OR</p>
