@@ -1,1 +1,1 @@
-> # GitHub User Details & All Repos
+> ## GitHub User Details & All Repos via Username
