@@ -19,7 +19,7 @@ body {
 /* For Scroll bar Customization */
 
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 body {

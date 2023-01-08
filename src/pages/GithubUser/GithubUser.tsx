@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import useRepositories from "../../Hooks/useRepositories";
-import useUser from "../../Hooks/useUser";
-import Header from "../Header/Header";
+import useRepositories from "../../hooks/useRepositories";
+import useUser from "../../hooks/useUser";
+import Header from "../../shared/Header/Header";
 import Pagination from "../Pagination/Pagination";
 import Repositories from "../Repositories/Repositories";
 
 export default function GithubUser() {
   const { username } = useParams();
-  const [user] = useUser(username);
+  const [user] = useUser(username as any);
   const [repositories, setRepositories] = useState([]);
-  const { pageLoading } = useRepositories(username, setRepositories);
+  const { pageLoading } = useRepositories(username as any, setRepositories);
 
   return (
-    <div className="container mx-auto px-5 overflow-x-hidden pb-10">
-      <Header user={user} />
+    <div className="container mx-auto px-3 md:px-0 pb-10">
+      <Header user={user} repositories={repositories} />
       <Repositories pageLoading={pageLoading} repositories={repositories} />
       <Pagination username={username} setRepositories={setRepositories} />
     </div>

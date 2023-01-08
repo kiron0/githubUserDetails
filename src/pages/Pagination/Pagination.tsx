@@ -1,9 +1,9 @@
 import React from "react";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
-import useRepositories from "../../Hooks/useRepositories";
+import useRepositories from "../../hooks/useRepositories";
 import { useNavigate } from "react-router-dom";
 
-export default function Pagination({ username, setRepositories }) {
+export default function Pagination({ username, setRepositories }: any) {
   const navigate = useNavigate();
   const { page, setPage, pageNumber, setNewer, newer } = useRepositories(
     username,
@@ -17,22 +17,20 @@ export default function Pagination({ username, setRepositories }) {
           <div className="btn-group py-5 ">
             <button
               onClick={() => setPage(page - 1)}
-              className={`btn btn-primary btn-outline btn-sm ${
-                page === 1 ? "btn-disabled" : undefined
-              }`}
+              className={`btn btn-primary btn-outline btn-sm ${page === 1 ? "btn-disabled" : undefined
+                }`}
             >
               «
             </button>
 
-            {[...Array(pageNumber)?.keys()]?.map((number) => (
+            {[...Array(pageNumber)?.keys()]?.map((number: number) => (
               <button
                 key={number}
                 onClick={() => setPage(number + 1)}
-                className={`${
-                  page === number + 1
-                    ? "btn btn-sm btn-primary"
-                    : "btn btn-sm btn-outline btn-primary"
-                }`}
+                className={`${page === number + 1
+                  ? "btn btn-sm btn-primary"
+                  : "btn btn-sm btn-outline btn-primary"
+                  }`}
               >
                 {number + 1}
               </button>
@@ -40,9 +38,8 @@ export default function Pagination({ username, setRepositories }) {
 
             <button
               onClick={() => setPage(page + 1)}
-              className={`btn btn-primary btn-outline btn-sm ${
-                page === pageNumber ? "btn-disabled" : undefined
-              }`}
+              className={`btn btn-primary btn-outline btn-sm ${page === pageNumber ? "btn-disabled" : undefined
+                }`}
             >
               »
             </button>
@@ -51,17 +48,15 @@ export default function Pagination({ username, setRepositories }) {
           <div className="flex justify-between items-center">
             <button
               onClick={() => setNewer(false)}
-              className={`capitalize btn btn-sm btn-outline ${
-                !newer ? "btn-disabled" : "btn-primary"
-              }`}
+              className={`capitalize btn btn-sm btn-outline ${!newer ? "btn-disabled" : "btn-primary"
+                }`}
             >
               {<AiOutlineArrowLeft />} Older
             </button>
             <button
               onClick={() => setNewer(true)}
-              className={`capitalize btn btn-sm btn-outline ${
-                newer ? "btn-disabled" : "btn-primary"
-              }`}
+              className={`capitalize btn btn-sm btn-outline ${newer ? "btn-disabled" : "btn-primary"
+                }`}
             >
               Newer {<AiOutlineArrowRight />}
             </button>
@@ -69,7 +64,7 @@ export default function Pagination({ username, setRepositories }) {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center md:h-[70vh] lg:h-[75vh] h-[50vh]">
-          <h1>Page Not Found</h1>
+          <h1>Not available</h1>
           <button
             onClick={() => navigate("/")}
             className="btn btn-xs text-white mt-4"

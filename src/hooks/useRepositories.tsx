@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useRepositories(username, setRepositories) {
+export default function useRepositories(username: string, setRepositories: any) {
   const [pageLoading, setPageLoading] = useState(false);
   const [pageNumber, setPageNumber] = useState(1);
   const [page, setPage] = useState(1);
@@ -9,9 +9,8 @@ export default function useRepositories(username, setRepositories) {
 
   useEffect(() => {
     setPageLoading(true);
-    const url = `https://api.github.com/users/${username}/repos?page=${page}&per_page=${size}${
-      newer ? "&sort=created" : ""
-    }`;
+    const url = `https://api.github.com/users/${username}/repos?page=${page}&per_page=${size}${newer ? "&sort=created" : ""
+      }`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

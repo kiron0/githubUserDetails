@@ -1,21 +1,23 @@
 import React, { useContext, useRef } from "react";
 import { InitializeContext } from "../../App";
-import gitHubDark from "../../Assets/github-dark.png";
-import gitHubLight from "../../Assets/github-light.png";
+import gitHubDark from "../../assets/github-dark.png";
+import gitHubLight from "../../assets/github-light.png";
 import { toast } from "react-hot-toast";
 
 export default function Home() {
   const { handleThemeChange, theme } = useContext(InitializeContext);
-  const name = useRef();
-  const handleUserNameSearch = (e) => {
+  const name = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const handleUserNameSearch = (e: any) => {
     e.preventDefault();
 
+    const nameValue = name.current.value;
+
     // if name is empty
-    if (!name.current.value) {
+    if (!nameValue || nameValue === "") {
       toast.error("Please enter a username");
       return;
     } else {
-      window.location.href = `/${name.current.value}`;
+      window.location.href = `/${nameValue}`;
     }
   };
   return (
@@ -63,8 +65,6 @@ export default function Home() {
         Ex:{" "}
         <a
           href={`${window.location.href}kiron0`}
-          target="_blank"
-          rel="noreferrer"
           className="hover:text-primary duration-300"
         >
           {window.location.href}kiron0
