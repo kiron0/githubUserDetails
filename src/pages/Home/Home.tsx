@@ -14,12 +14,23 @@ export default function Home() {
 
     // if name is empty
     if (!nameValue || nameValue === "") {
-      toast.error("Please Enter GitHub Username..!");
+      if (theme) {
+        toast.error("Please Enter GitHub Username..!", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      } else {
+        toast.error("Please Enter GitHub Username..!");
+      }
       return;
     } else {
       window.location.href = `/${nameValue}`;
     }
   };
+
   return (
     <div className="flex flex-col gap-5 justify-center items-center h-screen overflow-x-hidden">
       <div className="flex justify-center items-center gap-4 backdrop-blur-lg glass px-1 fixed top-4 right-4 rounded-xl">
