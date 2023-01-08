@@ -29,51 +29,45 @@ export default function Header({ user, repositories }: any) {
   return (
     <>
       <section className="body-font py-16">
-        {
-          repositories.length > 0 && (
-            <>
-              <div
-                className={`flex justify-center items-center gap-4 backdrop-blur-lg glass z-50 fixed top-4 left-4 rounded-xl p-2 px-3 cursor-pointer`}
-                onClick={() => navigate("/")}
-              >
-                <BiLeftArrow /> Back
-              </div>
-              <div
-                className={`flex justify-center items-center gap-4 backdrop-blur-lg glass z-50 fixed top-4 right-4 md:right-8 rounded-xl px-1`}
-              >
-                <div className="flex justify-center items-center">
-                  <button
-                    onClick={handleThemeChange}
-                    className="pt-2"
-                    title={`Click to ${theme ? "Light" : "Dark"} theme`}
-                  >
-                    {theme ? (
-                      <input type="checkbox" className="toggle toggle-sm" checked />
-                    ) : (
-                      <input type="checkbox" className="toggle toggle-sm" />
-                    )}
-                  </button>
-                </div>
-                <div className="flex justify-center items-center">
-                  <a
-                    href="https://github.com/kiron0/github-user-details"
-                    target="_blank"
-                    rel="noreferrer"
-                    title="Github User Details"
-                  >
-                    <button className="flex justify-center">
-                      <img
-                        className="h-10 md:h-12 w-10 md:w-12"
-                        src={`${theme ? gitHubDark : gitHubLight}`}
-                        alt="github"
-                      />
-                    </button>
-                  </a>
-                </div>
-              </div>
-            </>
-          )
-        }
+        <div
+          className={`flex justify-center items-center gap-4 backdrop-blur-lg glass z-50 fixed top-4 left-4 rounded-xl p-2 px-3 cursor-pointer`}
+          onClick={() => navigate("/")}
+        >
+          <BiLeftArrow /> Back
+        </div>
+        <div
+          className={`flex justify-center items-center gap-4 backdrop-blur-lg glass z-50 fixed top-4 right-4 md:right-8 rounded-xl px-1`}
+        >
+          <div className="flex justify-center items-center">
+            <button
+              onClick={handleThemeChange}
+              className="pt-2"
+              title={`Click to ${theme ? "Light" : "Dark"} theme`}
+            >
+              {theme ? (
+                <input type="checkbox" className="toggle toggle-sm" checked />
+              ) : (
+                <input type="checkbox" className="toggle toggle-sm" />
+              )}
+            </button>
+          </div>
+          <div className="flex justify-center items-center">
+            <a
+              href="https://github.com/kiron0/github-user-details"
+              target="_blank"
+              rel="noreferrer"
+              title="Github User Details"
+            >
+              <button className="flex justify-center">
+                <img
+                  className="h-10 md:h-12 w-10 md:w-12"
+                  src={`${theme ? gitHubDark : gitHubLight}`}
+                  alt="github"
+                />
+              </button>
+            </a>
+          </div>
+        </div>
         <div className="hero">
           <div className="hero-content flex-col justify-between lg:flex-row mx-auto">
             <div className="w-full lg:w-1/2 lg:ml-6">
@@ -98,8 +92,9 @@ export default function Header({ user, repositories }: any) {
               </h1>
               <p className="font-semibold">{bio}</p>
               {company && (
-                <p className="font-semibold">
-                  {company ? company : "Not available"}
+                <p className="font-semibold hover:text-primary">
+                  <a href={`https://github.com/${company.slice(1)}`} target="_blank"
+                    rel="noreferrer" className="flex items-center justify-center md:justify-start gap-1"><i className='bx bx-link text-xl'></i>{company ? company : "Not available"}</a>
                 </p>
               )}
               <p className="flex items-center justify-center md:justify-start font-semibold py-2">
@@ -112,7 +107,7 @@ export default function Header({ user, repositories }: any) {
                     href={`https://twitter.com/${twitter_username}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-center md:justify-start gap-1 hover:text-blue-500"
+                    className="flex items-center justify-center md:justify-start gap-1 font-semibold hover:text-blue-500"
                   >
                     <i className='bx bxl-twitter text-xl'></i> @{twitter_username}
                   </a>
@@ -120,7 +115,7 @@ export default function Header({ user, repositories }: any) {
               </p>
               <p>
                 {blog && (
-                  <a href={`${blog}`} target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-1 hover:text-primary">
+                  <a href={`${blog}`} target="_blank" rel="noreferrer" className="flex items-center justify-center md:justify-start gap-1 hover:text-primary font-semibold">
                     <i className='bx bx-link text-xl'></i> {blog}
                   </a>
                 )}

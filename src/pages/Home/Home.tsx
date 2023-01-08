@@ -14,7 +14,7 @@ export default function Home() {
 
     // if name is empty
     if (!nameValue || nameValue === "") {
-      toast.error("Please enter a username");
+      toast.error("Please Enter GitHub Username..!");
       return;
     } else {
       window.location.href = `/${nameValue}`;
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center items-center">
           <a
-            href="https://github.com/kiron0/github-user-details"
+            href="https://github.com/kiron0/githubUserDetails"
             target="_blank"
             rel="noreferrer"
             title="Github User Details"
@@ -53,22 +53,23 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <div className="flex justify-center">
+        <img
+          className="w-1/3 md:w-1/2 h-auto"
+          src={`${theme ? gitHubDark : gitHubLight}`}
+          alt="github"
+        />
+      </div>
       <div className="flex justify-center pb-0">
-        <h1 className="text-xl md:text-3xl font-semibold pt-4 md:pt-0">
-          Welcome To GitHub User Details API
+        <h1 className="text-xl text-center md:text-3xl font-semibold pt-4 md:pt-0">
+          Welcome To <span className={theme && "text-primary"}>Git5</span> (GitHub User Details) Web App
         </h1>
       </div>
       <p className="text-sm md:text-xl text-center">
         Type your username with "/" after the root URL to see your details
       </p>
-      <p className="text-sm md:text-xl">
-        Ex:{" "}
-        <a
-          href={`${window.location.href}kiron0`}
-          className="hover:text-primary duration-300"
-        >
-          {window.location.href}kiron0
-        </a>
+      <p className="text-sm md:text-xl duration-300 cursor-not-allowed select-none">
+        Ex: <span className="hover:text-primary">{window.location.href}kiron0</span>
       </p>
       <p className="divider w-[50%] md:w-[30%] lg:w-[20%] mx-auto">OR</p>
       <form className="flex flex-col justify-center items-center w-full max-w-xs">

@@ -21,6 +21,7 @@ export default function Repository({ repository }: any) {
       });
     }
   };
+
   return (
     <div className="container mx-auto">
       <div className="container mx-auto pb-10">
@@ -108,9 +109,10 @@ export default function Repository({ repository }: any) {
             )}
             <div className="card-actions justify-end pt-5 font-semibold">
               <div
-                className="badge badge-ghost bg-green-400 py-3 text-white"
-              >
-                {repository?.language ? repository?.language : "Not found"}
+                className="badge badge-neutral text-white py-3 flex items-center gap-1 select-none"
+              >{
+                  repository?.language === "TypeScript" ? <i className='bx bxl-typescript text-lg'></i> : repository?.language === "JavaScript" ? <i className='bx bxl-javascript text-lg'></i> : repository?.language === "HTML" ? <i className='bx bxl-html5 text-lg'></i> : repository?.language === "CSS" ? <i className='bx bxl-css3 text-lg'></i> : <i className='bx bx-code-alt' ></i>
+                } {repository?.language ? repository?.language : "Not found"}
               </div>
               <div className="badge badge-ghost bg-base-200">
                 <i className='bx bx-git-repo-forked mr-1' ></i> Created:{" "}
