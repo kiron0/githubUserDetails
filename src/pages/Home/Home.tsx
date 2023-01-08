@@ -62,14 +62,14 @@ export default function Home() {
       </div>
       <div className="flex justify-center pb-0">
         <h1 className="text-xl text-center md:text-3xl font-semibold pt-4 md:pt-0">
-          Welcome To <span className={theme && "text-primary"}>Git5</span> (GitHub User Details) Web App
+          Welcome To <span className={theme && "text-primary"}>Git5</span> Web App
         </h1>
       </div>
       <p className="text-sm md:text-xl text-center">
         Type your username with "/" after the root URL to see your details
       </p>
       <p className="text-sm md:text-xl duration-300 cursor-not-allowed select-none">
-        Ex: <span className="hover:text-primary">{window.location.href}kiron0</span>
+        Ex: <span>{window.location.href}kiron0</span>
       </p>
       <p className="divider w-[50%] md:w-[30%] lg:w-[20%] mx-auto">OR</p>
       <form className="flex flex-col justify-center items-center w-full max-w-xs">
